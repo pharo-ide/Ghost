@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "DenisKudryashov 3/29/2016 15:41",
+	"super" : "GHGhostBehaviour",
+	"category" : "Ghost-Learning",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"metaLevel",
+		"studiedMessages",
+		"teacher"
+	],
+	"name" : "GHLearning",
+	"type" : "normal"
+}

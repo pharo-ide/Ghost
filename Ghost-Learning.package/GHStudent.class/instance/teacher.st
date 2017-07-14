@@ -1,0 +1,3 @@
+accessing
+teacher
+	^ learning teacher

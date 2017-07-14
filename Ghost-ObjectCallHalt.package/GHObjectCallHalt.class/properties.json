@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "DenisKudryashov 9/2/2016 18:15",
+	"super" : "GHGhostBehaviour",
+	"category" : "Ghost-ObjectCallHalt",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "GHObjectCallHalt",
+	"type" : "normal"
+}

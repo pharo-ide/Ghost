@@ -1,0 +1,1 @@
+I am special debugger action to run code until current receiver will not be called by any message. Any next call wil be halted

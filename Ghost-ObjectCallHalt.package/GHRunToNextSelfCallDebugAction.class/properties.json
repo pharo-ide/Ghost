@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "DenisKudryashov 4/14/2016 18:26",
+	"super" : "ResumeDebugAction",
+	"category" : "Ghost-ObjectCallHalt",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "GHRunToNextSelfCallDebugAction",
+	"type" : "normal"
+}

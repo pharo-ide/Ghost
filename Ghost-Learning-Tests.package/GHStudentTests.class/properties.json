@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "GHGhostTestCase",
+	"category" : "Ghost-Learning-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"teacher"
+	],
+	"name" : "GHStudentTests",
+	"type" : "normal"
+}
