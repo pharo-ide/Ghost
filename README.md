@@ -4,7 +4,7 @@ Ghost is framework to implement unnatural smalltalk objects like proxies or prot
 ## Installation
 ```Smalltalk
 Metacello new
-  baseline: 'Seamless';
+  baseline: 'Ghost';
   repository: 'github://dionisiydk/Ghost';
   load
 ```
