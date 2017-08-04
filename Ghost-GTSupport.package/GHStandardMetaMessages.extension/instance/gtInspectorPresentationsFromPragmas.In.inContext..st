@@ -3,22 +3,22 @@ gtInspectorPresentationsFromPragmas: aCollection In: composite inContext: aGTIns
 
 	aCollection
 		do: [ :eachPragma | 
-			eachPragma selector numArgs = 0
+			eachPragma methodSelector numArgs = 0
 				ifTrue: [ 
 					| configurationProvider |
-					configurationProvider := self perform: eachPragma selector.
+					configurationProvider := self perform: eachPragma methodSelector.
 					configurationProvider glmPresentation cull: composite cull: aGTInspector cull: self ].
-			eachPragma selector numArgs = 1
+			eachPragma methodSelector numArgs = 1
 				ifTrue: [ 
 					thisContext 
 						object: self 
-						perform: eachPragma selector 
+						perform: eachPragma methodSelector 
 						withArguments: { composite } 
 						inClass: self metaMessagesClass ].
-			eachPragma selector numArgs = 2
+			eachPragma methodSelector numArgs = 2
 				ifTrue: [ 
 					thisContext 
 						object: self 
-						perform: eachPragma selector 
+						perform: eachPragma methodSelector 
 						withArguments: { composite . aGTInspector } 
 						inClass: self metaMessagesClass ] ]

@@ -9,6 +9,6 @@ gtDebuggerPresentationsIn: composite inContext: aGTInspector
 				allNamed: #gtInspectorPresentationOrder: 
 				from: self metaMessagesClass 
 				to: ProtoObject)
-					reject: [:pragma| pragma method selector = #gtInspectorRawIn: ]).
+					reject: [:pragma| pragma methodSelector = #gtInspectorRawIn: ]).
 	pragmas := pragmas sorted: [: x :y | (x argumentAt: 1) < (y argumentAt: 1)].
 	self gtInspectorPresentationsFromPragmas: pragmas In: composite inContext: aGTInspector

@@ -13,7 +13,7 @@ gtInspectorActions
 				to: ProtoObject) collect: [:eachPragma |
 					thisContext 
 						object: self
-						perform: eachPragma selector 
+						perform: eachPragma methodSelector 
 						withArguments: #() 
 						inClass: self metaMessagesClass ].
 	^ all asSortedCollection: [:a :b | 
