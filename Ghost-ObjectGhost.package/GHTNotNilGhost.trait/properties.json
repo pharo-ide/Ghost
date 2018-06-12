@@ -3,5 +3,7 @@
 	"traitcomposition" : "GHTMinimalGhost",
 	"classtraitcomposition" : "GHTMinimalGhost classTrait",
 	"category" : "Ghost-ObjectGhost",
-	"name" : "GHTNotNilGhost"
+	"classinstvars" : [ ],
+	"name" : "GHTNotNilGhost",
+	"instvars" : [ ]
 }
