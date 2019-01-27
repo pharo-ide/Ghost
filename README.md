@@ -1,5 +1,5 @@
 # Ghost
-[![Build Status](https://travis-ci.org/dionisiydk/Ghost.svg?branch=master)](https://travis-ci.org/dionisiydk/Ghost)
+[![Build Status](https://travis-ci.org/pharo-ide/Ghost.svg?branch=master)](https://travis-ci.org/pharo-ide/Ghost)
 
 Ghost is framework to implement unnatural smalltalk objects like proxies or prototypes. It provides suitable infrastructure to implement message processing in special way
 
@@ -15,7 +15,7 @@ To add dependency in your project baseline:
 ```Smalltalk
 spec
     baseline: 'Ghost'
-    with: [ spec repository: 'github://dionisiydk/Ghost:v3.0.x' ]
+    with: [ spec repository: 'github://dionisiydk/Ghost:v3.1.x' ]
 ```
 For old Pharo versions project should be loaded from smalltalkhub:
 ```Smalltalk
