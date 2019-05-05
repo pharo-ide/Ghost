@@ -16,7 +16,7 @@ baseline: spec
 			package: 'Ghost-ObjectCallHalt-Tests' with: [ spec requires: #('Ghost-ObjectCallHalt')].
 			
 		spec baseline: 'StateSpecs' with: [
-			spec repository: 'github://dionisiydk/StateSpecs:v2.4.10'].
+			spec repository: 'github://dionisiydk/StateSpecs:v2.4.11'].
 		
 		spec package: 'Ghost-StateSpecsSupport' with: [ spec requires: #('Ghost-ObjectGhost' 'StateSpecs') ]. 
 		spec package: 'Ghost-StateSpecsSupport-Tests' with: [ spec requires: #('Ghost-StateSpecsSupport' 'Ghost-ObjectGhost-Tests')].
