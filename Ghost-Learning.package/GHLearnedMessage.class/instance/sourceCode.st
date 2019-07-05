@@ -1,3 +1,0 @@
-accessing
-sourceCode
-	^method sourceCode

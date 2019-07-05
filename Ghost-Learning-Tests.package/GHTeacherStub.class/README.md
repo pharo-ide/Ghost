@@ -1,1 +1,0 @@
-I am special class for tests which describe how GHLearningObject works
