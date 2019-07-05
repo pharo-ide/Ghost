@@ -8,14 +8,14 @@ Use following script for Pharo version >= 6:
 ```Smalltalk
 Metacello new
   baseline: 'Ghost';
-  repository: 'github://dionisiydk/Ghost';
+  repository: 'github://pharo-ide/Ghost';
   load
 ```
 To add dependency in your project baseline:
 ```Smalltalk
 spec
     baseline: 'Ghost'
-    with: [ spec repository: 'github://dionisiydk/Ghost:v3.1.x' ]
+    with: [ spec repository: 'github://pharo-ide/Ghost:v3.1.x' ]
 ```
 For old Pharo versions project should be loaded from smalltalkhub:
 ```Smalltalk
