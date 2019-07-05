@@ -15,7 +15,7 @@ To add dependency in your project baseline:
 ```Smalltalk
 spec
     baseline: 'Ghost'
-    with: [ spec repository: 'github://pharo-ide/Ghost:v3.1.x' ]
+    with: [ spec repository: 'github://pharo-ide/Ghost:v4.0.x' ]
 ```
 For old Pharo versions project should be loaded from smalltalkhub:
 ```Smalltalk
