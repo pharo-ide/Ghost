@@ -4,13 +4,15 @@
 Ghost is framework to implement unnatural smalltalk objects like proxies or prototypes. It provides suitable infrastructure to implement message processing in special way
 
 ## Installation
-Use following script for Pharo version > 6:
+Use following script for Pharo version >= 6:
 ```Smalltalk
 Metacello new
   baseline: 'Ghost';
   repository: 'github://pharo-ide/Ghost';
   load
 ```
+Notice that Pharo 6 requires manual loading of Tonel format.
+
 To add dependency in your project baseline:
 ```Smalltalk
 spec
@@ -25,5 +27,3 @@ Metacello new
       version: #stable;
       load.
 ```
-### Pharo 6 installation
-Pharo6 installation requires manual loading of Tonel format
