@@ -34,3 +34,8 @@ GHTMinimalGhost >> stringForSpecTitle [
 GHTMinimalGhost >> stringForSpecValidation [
 	^self stringForSpecTitle
 ]
+
+{ #category : #'*Ghost-StateSpecsSupport' }
+GHTMinimalGhost >> valueForFutureStateValidation [
+	^self
+]

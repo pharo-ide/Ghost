@@ -36,6 +36,15 @@ GHStateSpecsSupportTests >> testEqualitySpec [
 ]
 
 { #category : #tests }
+GHStateSpecsSupportTests >> testFutureStateSpec [
+	| ghost |
+	ghost := GHObjectGhostStub new.
+	
+	self shouldnt: [ghost should takeAWhile to equal: ghost] raise: SpecOfFailed.
+	self should: [ghost should takeAWhile to equal: 2] raise: SpecOfFailed.
+]
+
+{ #category : #tests }
 GHStateSpecsSupportTests >> testGhostsAreNotStateSpecs [
 	| ghost |
 	ghost := GHObjectGhostStub new.

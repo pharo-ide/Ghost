@@ -166,53 +166,53 @@ GHMetaMessages class >> withReceiver: anObject perform: selector withArguments: 
 	self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> executeMetaMessage: aMessage [
 
 	^super perform: aMessage selector withArguments: aMessage arguments
 ]
 
-{ #category : #'helpers-accessing' }
+{ #category : #accessing }
 GHMetaMessages >> ghost [
 	^ ghost
 ]
 
-{ #category : #'helpers-accessing' }
+{ #category : #accessing }
 GHMetaMessages >> ghost: anObject [
 	ghost := anObject
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> ghostClass [
 
 	^self metaMessagesClass extractClassOf: ghost
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> ghostExecuteWithArguments: argArray method: compiledMethod [
 
 	^self metaMessagesClass executeWith: ghost andArguments: argArray method: compiledMethod
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> ghostIdentityHash [
 
 	^self metaMessagesClass extractIdentityHashOf: ghost
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> ghostInstVarAt: index [
 
 	^self metaMessagesClass extractInstVarOf: ghost at: index
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> ghostSize [
 
 	^self metaMessagesClass extractSizeOf: ghost
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : #primitives }
 GHMetaMessages >> metaMessagesClass [
 	^super class
 
@@ -225,13 +225,13 @@ GHMetaMessages >> postCopy [
 	^ghost
 ]
 
-{ #category : #'helpers-printing' }
+{ #category : #printing }
 GHMetaMessages >> printGhost [
 
 	^ghost ghostPrintString
 ]
 
-{ #category : #'helpers-printing' }
+{ #category : #printing }
 GHMetaMessages >> printGhostClass [
 
 	^self ghostClass name
