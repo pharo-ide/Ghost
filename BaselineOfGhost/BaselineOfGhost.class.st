@@ -21,12 +21,6 @@ BaselineOfGhost >> baseline: spec [
 			package: 'Ghost-ObjectCallHalt' with: [ spec requires: #('Ghost-ObjectMutation') ];
 			package: 'Ghost-ObjectCallHalt-Tests' with: [ spec requires: #('Ghost-ObjectCallHalt')].
 			
-		spec baseline: 'StateSpecs' with: [
-			spec repository: 'github://dionisiydk/StateSpecs:v3.0.0'].
-		
-		spec package: 'Ghost-StateSpecsSupport' with: [ spec requires: #('Ghost-ObjectGhost' 'StateSpecs') ]. 
-		spec package: 'Ghost-StateSpecsSupport-Tests' with: [ spec requires: #('Ghost-StateSpecsSupport' 'Ghost-ObjectGhost-Tests')].
-		
 		spec
  			group: 'default' with: #( 'ObjectGhostTests' 'ClassGhostTests' 'ObjectMutationTests' 'GTSupport' 'LearningTests' );
 			group: 'ObjectGhost' with: #('Ghost-ObjectGhost' );
@@ -38,7 +32,6 @@ BaselineOfGhost >> baseline: spec [
 			group: 'GTSupport' with: #('Ghost-GTSupport' );
 			group: 'Learning' with: #('Ghost-Learning' );
 			group: 'LearningTests' with: #('Ghost-Learning-Tests' );
-			group: 'StateSpecsSupport' with: #('Ghost-StateSpecsSupport-Tests' );
 			group: 'ObjectCallHalt' with: #('Ghost-ObjectCallHalt-Tests' 'ObjectGhostTests' 'ClassGhostTests' 'ObjectMutationTests' 'GTSupport')
 		] 
 
