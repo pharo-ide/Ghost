@@ -8,7 +8,7 @@ Method #isGhost is convinient method to easy check if object is ghost. It is imp
 "
 Trait {
 	#name : #GHTMinimalGhost,
-	#category : 'Ghost-ObjectGhost'
+	#category : #'Ghost-ObjectGhost'
 }
 
 { #category : #comparing }
@@ -22,12 +22,14 @@ GHTMinimalGhost >> == anObject [
 	self primitiveFailed
 ]
 
-{ #category : #'set implementation' }
-GHTMinimalGhost >> asSetElement [
+{ #category : #converting }
+GHTMinimalGhost >> asCollectionElement [
+	
 ]
 
-{ #category : #'set implementation' }
-GHTMinimalGhost >> enclosedSetElement [
+{ #category : #accessing }
+GHTMinimalGhost >> enclosedElement [
+	
 ]
 
 { #category : #accessing }
