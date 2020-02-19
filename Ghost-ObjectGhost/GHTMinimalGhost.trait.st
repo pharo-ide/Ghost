@@ -27,9 +27,17 @@ GHTMinimalGhost >> asCollectionElement [
 	
 ]
 
+{ #category : #'set implementation' }
+GHTMinimalGhost >> asSetElement [
+]
+
 { #category : #accessing }
 GHTMinimalGhost >> enclosedElement [
 	
+]
+
+{ #category : #'set implementation' }
+GHTMinimalGhost >> enclosedSetElement [
 ]
 
 { #category : #accessing }
