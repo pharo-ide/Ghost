@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfGhost,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfGhost'
+	#category : #BaselineOfGhost
 }
 
 { #category : #baselines }
@@ -35,4 +35,11 @@ BaselineOfGhost >> baseline: spec [
 			group: 'ObjectCallHalt' with: #('Ghost-ObjectCallHalt-Tests' 'ObjectGhostTests' 'ClassGhostTests' 'ObjectMutationTests' 'GTSupport')
 		] 
 
+]
+
+{ #category : #accessing }
+BaselineOfGhost >> projectClass [
+	^ [ self class environment at: #MetacelloCypressBaselineProject ]
+		on: NotFound
+		do: [ super projectClass ]
 ]
