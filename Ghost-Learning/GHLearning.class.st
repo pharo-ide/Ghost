@@ -22,7 +22,7 @@ Class {
 		'studiedMessages',
 		'teacher'
 	],
-	#category : 'Ghost-Learning'
+	#category : #'Ghost-Learning'
 }
 
 { #category : #'instance creation' }
@@ -50,8 +50,17 @@ GHLearning >> initialize [
 GHLearning >> installStudiedMessagesInto: aMetaMessagesClass [
 
 	studiedMessages do: [ :each |
-		(aMetaMessagesClass includes: each selector) ifFalse: [ 
+		(aMetaMessagesClass includesSelector: each selector) ifFalse: [ 
 			aMetaMessagesClass compile: each sourceCode classified: each category ]
+	]
+]
+
+{ #category : #operations }
+GHLearning >> installStudiedMessagesInto: aMetaMessagesClass asExtensionsOf: aPackageName [
+
+	studiedMessages do: [ :each |
+		(aMetaMessagesClass includesSelector: each selector) ifFalse: [ 
+			aMetaMessagesClass compile: each sourceCode classified: '*', aPackageName ]
 	]
 ]
 
