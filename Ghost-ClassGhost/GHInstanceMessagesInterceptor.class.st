@@ -49,7 +49,7 @@ GHInstanceMessagesInterceptor class >> prepareCannotInterpretMethodFor: selector
 	method := self compiledMethodAt: methodName ifAbsent: [ ^self error: 'Please implement method ', methodName, ' on instance side for new num args'].
 
 	copy := method copy.
-	copy propertyValueAt: #canNotInterpretSelector put: selector.
+	copy propertyAt: #canNotInterpretSelector put: selector.
 	^copy
 ]
 
@@ -57,7 +57,7 @@ GHInstanceMessagesInterceptor class >> prepareCannotInterpretMethodFor: selector
 GHInstanceMessagesInterceptor class >> simulateCannotInterpretIn: trickMethodContext [
 "I am called from special methods which created to support debugging of methods which receiver class was proxified by cannotInterpret: trick"	
 	| message selector receiver |
-	selector := trickMethodContext method propertyValueAt: #canNotInterpretSelector.	
+	selector := trickMethodContext method propertyAt: #canNotInterpretSelector.	
 	message := Message selector: selector arguments: trickMethodContext arguments.
 	receiver := trickMethodContext receiver.	
 		
