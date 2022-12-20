@@ -1,6 +1,14 @@
 Extension { #name : #GHStandardMetaMessages }
 
 { #category : #'*Ghost-NewToolsSupport' }
+GHStandardMetaMessages >> allInspectorNodes [
+	"Answer a list of attributes as nodes"
+
+	^ { StInspectorSelfNode hostObject: ghost }, 
+		self inspectorNodes
+]
+
+{ #category : #'*Ghost-NewToolsSupport' }
 GHStandardMetaMessages >> displayString [ 
 	^ghost ghostPrintString
 ]
