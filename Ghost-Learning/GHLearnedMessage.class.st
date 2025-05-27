@@ -13,16 +13,17 @@ Internal Representation and Key Implementation Points.
 	method:		<Method>
 "
 Class {
-	#name : #GHLearnedMessage,
-	#superclass : #Object,
+	#name : 'GHLearnedMessage',
+	#superclass : 'Object',
 	#instVars : [
 		'method',
 		'firstSender'
 	],
-	#category : 'Ghost-Learning'
+	#category : 'Ghost-Learning',
+	#package : 'Ghost-Learning'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHLearnedMessage class >> from: senderContext method: aMethod [
 
 	^self new 
@@ -30,43 +31,50 @@ GHLearnedMessage class >> from: senderContext method: aMethod [
 		firstSender: senderContext 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> category [
-	^method category
+
+	^ self protocolName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> firstSender [
 	^ firstSender
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> firstSender: anObject [
 	firstSender := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> method [
 	^ method
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> method: anObject [
 	method := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 GHLearnedMessage >> printOn: aStream [
 
 	^method printOn: aStream 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+GHLearnedMessage >> protocolName [
+
+	^ method protocolName
+]
+
+{ #category : 'accessing' }
 GHLearnedMessage >> selector [
 	^method selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearnedMessage >> sourceCode [
 	^method sourceCode
 ]

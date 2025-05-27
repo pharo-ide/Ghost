@@ -1,6 +1,6 @@
-Extension { #name : #GHTMinimalGhost }
+Extension { #name : 'GHTMinimalGhost' }
 
-{ #category : #'*Ghost-NewToolsSupport' }
+{ #category : '*Ghost-NewToolsSupport' }
 GHTMinimalGhost >> ghostInspectionRaw [
 	"This is the most basic presentation showing the state of the object"
 	<inspectorPresentationOrder: 900 title: 'Raw'>
@@ -8,7 +8,7 @@ GHTMinimalGhost >> ghostInspectionRaw [
 	^ GHGhostRawInspection on: self
 ]
 
-{ #category : #'*Ghost-NewToolsSupport' }
+{ #category : '*Ghost-NewToolsSupport' }
 GHTMinimalGhost >> inspectorIcon [ 
 	^nil
 ]

@@ -15,30 +15,31 @@ Internal Representation and Key Implementation Points.
 	teacher:		<Class>
 "
 Class {
-	#name : #GHLearning,
-	#superclass : #GHGhostBehaviour,
+	#name : 'GHLearning',
+	#superclass : 'GHGhostBehaviour',
 	#instVars : [
 		'metaLevel',
 		'studiedMessages',
 		'teacher'
 	],
-	#category : #'Ghost-Learning'
+	#category : 'Ghost-Learning',
+	#package : 'Ghost-Learning'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHLearning class >> by: aTeacherClass [
 
 	^self new 
 		teacher: aTeacherClass 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearning >> currentMetaLevel [
 
 	^metaLevel
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GHLearning >> initialize [
 	super initialize.
 	
@@ -46,16 +47,17 @@ GHLearning >> initialize [
 	studiedMessages := Dictionary new.
 ]
 
-{ #category : #operations }
+{ #category : 'operations' }
 GHLearning >> installStudiedMessagesInto: aMetaMessagesClass [
 
 	studiedMessages do: [ :each |
-		(aMetaMessagesClass includesSelector: each selector) ifFalse: [ 
-			aMetaMessagesClass compile: each sourceCode classified: each category ]
-	]
+			(aMetaMessagesClass includesSelector: each selector) ifFalse: [
+					aMetaMessagesClass
+						compile: each sourceCode
+						classified: each protocolName ] ]
 ]
 
-{ #category : #operations }
+{ #category : 'operations' }
 GHLearning >> installStudiedMessagesInto: aMetaMessagesClass asExtensionsOf: aPackageName [
 
 	studiedMessages do: [ :each |
@@ -64,7 +66,7 @@ GHLearning >> installStudiedMessagesInto: aMetaMessagesClass asExtensionsOf: aPa
 	]
 ]
 
-{ #category : #'message interception' }
+{ #category : 'message interception' }
 GHLearning >> learnMessage: aMessage sentTo: aGhost [
 
 	| sender method learnedMessage |
@@ -79,7 +81,7 @@ GHLearning >> learnMessage: aMessage sentTo: aGhost [
 	^learnedMessage
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GHLearning >> metaMessages: aMetaMessagesClass [
 
 	metaLevel := GHMetaLevel with: aMetaMessagesClass 
@@ -87,7 +89,7 @@ GHLearning >> metaMessages: aMetaMessagesClass [
 	
 ]
 
-{ #category : #'message interception' }
+{ #category : 'message interception' }
 GHLearning >> send: aMessage to: aGhost [
 
 	|  learnedMessage |
@@ -99,22 +101,22 @@ GHLearning >> send: aMessage to: aGhost [
 	^GHMetaMessages executeWith: aGhost andArguments: aMessage arguments method: learnedMessage method
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearning >> studiedMessages [
 	^ studiedMessages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearning >> studiedMessages: anObject [
 	studiedMessages := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearning >> teacher [
 	^ teacher
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHLearning >> teacher: anObject [
 	teacher := anObject
 ]

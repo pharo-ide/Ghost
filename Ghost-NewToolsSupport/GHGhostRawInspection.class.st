@@ -1,17 +1,18 @@
 Class {
-	#name : #GHGhostRawInspection,
-	#superclass : #StRawInspection,
-	#category : #'Ghost-NewToolsSupport'
+	#name : 'GHGhostRawInspection',
+	#superclass : 'StRawInspectionPresenter',
+	#category : 'Ghost-NewToolsSupport',
+	#package : 'Ghost-NewToolsSupport'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHGhostRawInspection >> inspectorNodes [
 
 	^{ StInspectorSelfNode hostObject: self model }, 
 		((StNodeCollector for: self model) slotNodes)
 ]
 
-{ #category : #stepping }
+{ #category : 'stepping' }
 GHGhostRawInspection >> step [
 	| rootNodes |
 

@@ -1,1 +1,1 @@
-Package { #name : #'Ghost-Learning' }
+Package { #name : 'Ghost-Learning' }

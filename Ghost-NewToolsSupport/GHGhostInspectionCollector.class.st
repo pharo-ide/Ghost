@@ -1,10 +1,11 @@
 Class {
-	#name : #GHGhostInspectionCollector,
-	#superclass : #StInspectionCollector,
-	#category : #'Ghost-NewToolsSupport'
+	#name : 'GHGhostInspectionCollector',
+	#superclass : 'StInspectionCollector',
+	#category : 'Ghost-NewToolsSupport',
+	#package : 'Ghost-NewToolsSupport'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 GHGhostInspectionCollector >> basicContextFromPragma: aPragma [
 	| context |	
 	context := GHGhostInspectionContext fromPragma: aPragma.
