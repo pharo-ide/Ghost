@@ -1,18 +1,19 @@
 Class {
-	#name : #GHStudentTests,
-	#superclass : #GHGhostTestCase,
+	#name : 'GHStudentTests',
+	#superclass : 'GHGhostTestCase',
 	#instVars : [
 		'teacher'
 	],
-	#category : 'Ghost-Learning-Tests'
+	#category : 'Ghost-Learning-Tests',
+	#package : 'Ghost-Learning-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 GHStudentTests >> ghostClass [
 	^GHStudent 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 GHStudentTests >> setUp [
 	super setUp.
 	
@@ -20,21 +21,21 @@ GHStudentTests >> setUp [
 	teacher := GHTeacherStub new
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GHStudentTests >> testInstallingStudiedMessages [
-	
+
 	| class |
 	class := GHMetaMessages newAnonymousSubclass.
 	ghost someMessage.
 	ghost printString.
 
-	[ghost learning installStudiedMessagesInto: class] on: AuthorNameRequest  do: [:err | err resume: nil].
-	
+	ghost learning installStudiedMessagesInto: class.
+
 	self assert: (class includesSelector: #someMessage).
 	self assert: (class includesSelector: #printString)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GHStudentTests >> testLearningMessageFromObject [
 
 	| actual |
@@ -44,7 +45,7 @@ GHStudentTests >> testLearningMessageFromObject [
 	self assert: actual equals: 'a GHStudent'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GHStudentTests >> testLearningMessageShouldAddItToStudiedMessages [
 	
 	| actual |
@@ -56,7 +57,7 @@ GHStudentTests >> testLearningMessageShouldAddItToStudiedMessages [
 	self assert: actual firstSender equals: thisContext
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GHStudentTests >> testLearningMessageShouldExecuteIt [
 
 	| expected actual |

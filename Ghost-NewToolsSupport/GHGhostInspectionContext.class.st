@@ -1,10 +1,11 @@
 Class {
-	#name : #GHGhostInspectionContext,
-	#superclass : #StInspectionContext,
-	#category : #'Ghost-NewToolsSupport'
+	#name : 'GHGhostInspectionContext',
+	#superclass : 'StInspectionContext',
+	#category : 'Ghost-NewToolsSupport',
+	#package : 'Ghost-NewToolsSupport'
 }
 
-{ #category : #'private - factory' }
+{ #category : 'private - factory' }
 GHGhostInspectionContext >> basicNewInspectionPresenter [
 
 	| args |

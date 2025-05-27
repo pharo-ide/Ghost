@@ -1,1 +1,1 @@
-Package { #name : #'Ghost-NewToolsSupport' }
+Package { #name : 'Ghost-NewToolsSupport' }
