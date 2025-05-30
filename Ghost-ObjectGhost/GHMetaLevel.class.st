@@ -18,8 +18,8 @@ Internal Representation and Key Implementation Points.
 	metaMessages:		<GHMetaMessages class>
 "
 Class {
-	#name : #GHMetaLevel,
-	#superclass : #Object,
+	#name : 'GHMetaLevel',
+	#superclass : 'Object',
 	#instVars : [
 		'metaMessages'
 	],
@@ -27,26 +27,27 @@ Class {
 		'Empty',
 		'Standard'
 	],
-	#category : 'Ghost-ObjectGhost'
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaLevel class >> empty [
 	^Empty ifNil: [ Empty := GHMetaLevel with: GHEmptyMetaMessages ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaLevel class >> standard [
 	^Standard ifNil: [ Standard := GHMetaLevel with: GHStandardMetaMessages ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHMetaLevel class >> with: aMetaMessagesClass [
 	^self new 
 		metaMessages: aMetaMessagesClass 
 ]
 
-{ #category : #operations }
+{ #category : 'operations' }
 GHMetaLevel >> executeMetaMessage: aMessage on: aGhost [
 	
 	| metaMessageImplementor |
@@ -55,24 +56,24 @@ GHMetaLevel >> executeMetaMessage: aMessage on: aGhost [
 	^metaMessageImplementor executeMetaMessage: aMessage
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 GHMetaLevel >> initialize [
 	super initialize.
 	
 	metaMessages := GHEmptyMetaMessages 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 GHMetaLevel >> isMetaMessage: aMessage [
 	^metaMessages includes: aMessage selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaLevel >> metaMessages [
 	^ metaMessages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaLevel >> metaMessages: anObject [
 	metaMessages := anObject
 ]

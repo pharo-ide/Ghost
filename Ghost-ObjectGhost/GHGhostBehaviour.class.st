@@ -22,12 +22,13 @@ it should process intercepted domain messages. It should be implemented by subcl
 it should return GHMetaLevel instance which make sense for concrete ghost implementation
 "
 Class {
-	#name : #GHGhostBehaviour,
-	#superclass : #Object,
-	#category : 'Ghost-ObjectGhost'
+	#name : 'GHGhostBehaviour',
+	#superclass : 'Object',
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHGhostBehaviour >> currentMetaLevel [
 	^GHMetaLevel standard
 	"Standard meta level disables interception of messages from standard dev tools. 
@@ -36,7 +37,7 @@ GHGhostBehaviour >> currentMetaLevel [
 	
 ]
 
-{ #category : #'meta level' }
+{ #category : 'meta level' }
 GHGhostBehaviour >> executeMetaMessage: aMessage on: anObject [  
 	
 	^GHCurrentMetaLevelDepth increaseFor: [ 
@@ -44,7 +45,7 @@ GHGhostBehaviour >> executeMetaMessage: aMessage on: anObject [
 	]
 ]
 
-{ #category : #'message interception' }
+{ #category : 'message interception' }
 GHGhostBehaviour >> intercept: aMessage to: anObject [
 		
 	^(self isMetaMessage: aMessage)
@@ -52,7 +53,7 @@ GHGhostBehaviour >> intercept: aMessage to: anObject [
 	 	ifFalse: [ self send: aMessage to: anObject  ]
 ]
 
-{ #category : #'meta level' }
+{ #category : 'meta level' }
 GHGhostBehaviour >> isMetaMessage: aMessage [
 
 	GHCurrentMetaLevelDepth value > 0 ifTrue: [ ^true ]. 
@@ -60,7 +61,7 @@ GHGhostBehaviour >> isMetaMessage: aMessage [
 	^self currentMetaLevel isMetaMessage: aMessage
 ]
 
-{ #category : #'message interception' }
+{ #category : 'message interception' }
 GHGhostBehaviour >> send: aMessage to: aGhost [
 
 	nil subclassResponsibility 

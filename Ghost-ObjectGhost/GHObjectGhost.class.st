@@ -7,14 +7,15 @@ Subclasses should implement single method #ghostBehaviour to return GHGhostBehav
 Also they should implement instance creation method by #basicNew to create correctly initialized instances. 
 "
 Class {
-	#name : #GHObjectGhost,
-	#superclass : #nil,
+	#name : 'GHObjectGhost',
+	#superclass : 'nil',
 	#traits : 'GHTMinimalGhost',
 	#classTraits : 'GHTMinimalGhost classTrait',
-	#category : 'Ghost-ObjectGhost'
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHObjectGhost class >> new [ 
 	"It is special naked abstract class. Simple new will hang image because #initialize will be called.
 	It which will produce infinite recursion due to abstracted DNU handling. 
@@ -24,13 +25,13 @@ GHObjectGhost class >> new [
 	self subclassResponsibility.
 ]
 
-{ #category : #dispatching }
+{ #category : 'dispatching' }
 GHObjectGhost >> doesNotUnderstand: aMessage [ 
 	
 	^self ghostBehaviour intercept: aMessage to: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHObjectGhost >> ghostBehaviour [
 	nil subclassResponsibility 
 ]

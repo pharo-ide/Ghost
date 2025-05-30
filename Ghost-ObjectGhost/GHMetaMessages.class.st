@@ -27,15 +27,16 @@ Internal Representation and Key Implementation Points.
 	ghost:		<aGhost>
 "
 Class {
-	#name : #GHMetaMessages,
-	#superclass : #Object,
+	#name : 'GHMetaMessages',
+	#superclass : 'Object',
 	#instVars : [
 		'ghost'
 	],
-	#category : 'Ghost-ObjectGhost'
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> executeWith: receiver andArguments: argArray method: compiledMethod [
 	"Execute compiledMethod against the receiver and the arguments in argArray"
 	"Please do not use this method. It is just there to make sure that we can invoke this primitive with right order of arguments"
@@ -44,7 +45,7 @@ GHMetaMessages class >> executeWith: receiver andArguments: argArray method: com
 	^self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> extractClassOf: anObject [
 
 	"Primitive. Answer the object which is the receiver's class. Essential. See 
@@ -54,7 +55,7 @@ GHMetaMessages class >> extractClassOf: anObject [
 	self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> extractIdentityHashOf: anObject [
 	"Answer a SmallInteger whose value is related to the receiver's identity.
 	This method must not be overridden, except by SmallInteger.
@@ -67,7 +68,7 @@ GHMetaMessages class >> extractIdentityHashOf: anObject [
 	self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> extractInstVarOf: anObject at: anIndex [
 	"Primitive. Answer a fixed variable in an object. The numbering of the 
 	 variables corresponds to the named instance variables. Fail if the index 
@@ -79,7 +80,7 @@ GHMetaMessages class >> extractInstVarOf: anObject at: anIndex [
 	^self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> extractSizeOf: anObject [
 	"Answer the number of indexable variables in the argument anObject without sending
 	 it a message. This mimics the action of the VM when it fetches an object's variable size.
@@ -91,14 +92,14 @@ GHMetaMessages class >> extractSizeOf: anObject [
 	^0
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHMetaMessages class >> for: aGhost [
 
 	^self new 
 		ghost: aGhost
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 GHMetaMessages class >> includes: aSymbol [
 
 	| currentClass |
@@ -112,7 +113,7 @@ GHMetaMessages class >> includes: aSymbol [
 	^false
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> makeShallowCopyOf: anObject [
 	"Answer a copy of the receiver which shares the receiver's instance variables. It should never be overridden. I'm invoked from the copy template method. Subclasses that need to specialize the copy should specialize the postCopy hook method."
 	
@@ -120,7 +121,7 @@ GHMetaMessages class >> makeShallowCopyOf: anObject [
 	self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> printObject: anObject [
 	"Answer a String whose characters are a description of the receiver."
 
@@ -130,7 +131,7 @@ GHMetaMessages class >> printObject: anObject [
 	^aStream contents
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> printObject: anObject on: aStream [ 
 	"Append to the argument aStream a sequence of characters
         that describes the receiver."
@@ -142,19 +143,19 @@ GHMetaMessages class >> printObject: anObject on: aStream [
 	aStream nextPutAll: title
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> setClass: classObject to: anObject [
 
 	<primitive: 160>
 	self primitiveFailed
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> withReceiver: anObject perform: selector withArguments: argArray [
 	^self withReceiver: anObject perform: selector withArguments: argArray inClass: (self extractClassOf: anObject)
 ]
 
-{ #category : #'helpers-primitives' }
+{ #category : 'helpers-primitives' }
 GHMetaMessages class >> withReceiver: anObject perform: selector withArguments: argArray inClass: lookupClass [
 	"Send the selector, aSymbol, to anObject with arguments in argArray.
 	 Fail if the number of arguments expected by the selector 
@@ -166,78 +167,78 @@ GHMetaMessages class >> withReceiver: anObject perform: selector withArguments: 
 	self primitiveFailed
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> executeMetaMessage: aMessage [
 
 	^super perform: aMessage selector withArguments: aMessage arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaMessages >> ghost [
 	^ ghost
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMetaMessages >> ghost: anObject [
 	ghost := anObject
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> ghostClass [
 
 	^self metaMessagesClass extractClassOf: ghost
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> ghostExecuteWithArguments: argArray method: compiledMethod [
 
 	^self metaMessagesClass executeWith: ghost andArguments: argArray method: compiledMethod
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> ghostIdentityHash [
 
 	^self metaMessagesClass extractIdentityHashOf: ghost
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> ghostInstVarAt: index [
 
 	^self metaMessagesClass extractInstVarOf: ghost at: index
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> ghostSize [
 
 	^self metaMessagesClass extractSizeOf: ghost
 ]
 
-{ #category : #primitives }
+{ #category : 'primitives' }
 GHMetaMessages >> metaMessagesClass [
 	^super class
 
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 GHMetaMessages >> postCopy [
 	"we define this message as default implementation for ghost copy methods"
 	
 	^ghost
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 GHMetaMessages >> printGhost [
 
 	^ghost ghostPrintString
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 GHMetaMessages >> printGhostClass [
 
 	^self ghostClass name
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 GHMetaMessages >> shallowCopy [
 	"we define this message as default implementation for ghost copy methods"
 	
