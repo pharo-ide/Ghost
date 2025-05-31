@@ -6,36 +6,37 @@ I am used to prevent calls from meta level to domain level because domain level 
 it  increases current meta level depth for given block of code
 "
 Class {
-	#name : #GHCurrentMetaLevelDepth,
-	#superclass : #ProcessLocalVariable,
-	#category : 'Ghost-ObjectGhost'
+	#name : 'GHCurrentMetaLevelDepth',
+	#superclass : 'ProcessLocalVariable',
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 GHCurrentMetaLevelDepth class >> decrease [
 	self value: self value - 1
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 GHCurrentMetaLevelDepth class >> decreaseFor: aBlock [
 
 	self decrease.
 	^aBlock ensure: [ self increase ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 GHCurrentMetaLevelDepth class >> increase [
 	self value: self value + 1
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 GHCurrentMetaLevelDepth class >> increaseFor: aBlock [
 
 	self increase.
 	^aBlock ensure: [ self decrease ]
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 GHCurrentMetaLevelDepth >> default [
 	^0
 ]

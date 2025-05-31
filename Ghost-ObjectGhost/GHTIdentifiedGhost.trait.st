@@ -2,13 +2,14 @@
 I am trait for ghosts which are not required special identity interception because they supposed to be identified as any other objects.
 "
 Trait {
-	#name : #GHTIdentifiedGhost,
+	#name : 'GHTIdentifiedGhost',
 	#traits : 'GHTMinimalGhost',
 	#classTraits : 'GHTMinimalGhost classTrait',
-	#category : 'Ghost-ObjectGhost'
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTIdentifiedGhost >> = anObject [ 
 	"Answer whether the receiver and the argument represent the same object.
 	If = is redefined in any subclass, consider also redefining the message hash."
@@ -16,7 +17,7 @@ GHTIdentifiedGhost >> = anObject [
 	^self == anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTIdentifiedGhost >> basicIdentityHash [
 	"Answer a SmallInteger whose value is related to the receiver's identity.
 	This method must not be overridden, except by SmallInteger.
@@ -29,12 +30,12 @@ GHTIdentifiedGhost >> basicIdentityHash [
 	self primitiveFailed
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTIdentifiedGhost >> hash [
 	^self identityHash
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTIdentifiedGhost >> identityHash [
 	"Answer a SmallInteger whose value is related to the receiver's identity.
 	 This method must not be overridden, except by SmallInteger.  As of

@@ -12,60 +12,61 @@ Internal Representation and Key Implementation Points.
 	target:		<Object>
 "
 Class {
-	#name : #GHDelegatorBehaviour,
-	#superclass : #GHGhostBehaviour,
+	#name : 'GHDelegatorBehaviour',
+	#superclass : 'GHGhostBehaviour',
 	#instVars : [
 		'metaLevel',
 		'target'
 	],
-	#category : 'Ghost-ObjectGhost'
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHDelegatorBehaviour class >> metaLevel: aGHMetaLevel target: anObject [ 
 	^(self target: anObject)
 		metaLevel: aGHMetaLevel
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GHDelegatorBehaviour class >> target: anObject [ 
 	^self new 
 		target: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHDelegatorBehaviour >> currentMetaLevel [
 	^metaLevel
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GHDelegatorBehaviour >> initialize [
 	super initialize.
 	
 	metaLevel := GHMetaLevel empty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHDelegatorBehaviour >> metaLevel [
 	^ metaLevel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHDelegatorBehaviour >> metaLevel: anObject [
 	metaLevel := anObject
 ]
 
-{ #category : #'message interception' }
+{ #category : 'message interception' }
 GHDelegatorBehaviour >> send: aMessage to: aGhost [
 	^aMessage sendTo: target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHDelegatorBehaviour >> target [
 	^ target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHDelegatorBehaviour >> target: anObject [
 	target := anObject
 ]

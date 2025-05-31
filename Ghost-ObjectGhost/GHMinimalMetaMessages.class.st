@@ -2,39 +2,40 @@
 I implement minimal set of meta messages which define only class, hash and equality
 "
 Class {
-	#name : #GHMinimalMetaMessages,
-	#superclass : #GHMetaMessages,
-	#category : 'Ghost-ObjectGhost'
+	#name : 'GHMinimalMetaMessages',
+	#superclass : 'GHMetaMessages',
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHMinimalMetaMessages >> = anObject [ 
 
 	^ghost == anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHMinimalMetaMessages >> basicIdentityHash [
 	^self ghostIdentityHash
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHMinimalMetaMessages >> basicSize [
 	^self ghostSize
 ]
 
-{ #category : #'class membership' }
+{ #category : 'class membership' }
 GHMinimalMetaMessages >> class [
 
 	^self ghostClass
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHMinimalMetaMessages >> hash [
 	^self identityHash
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHMinimalMetaMessages >> identityHash [
 	"Answer a SmallInteger whose value is related to the receiver's identity.
 	 This method must not be overridden, except by SmallInteger.  As of

@@ -7,11 +7,12 @@ I define method #yourself because it is not make sense to push it to meta level.
 Method #isGhost is convinient method to easy check if object is ghost. It is implemented in ProtoObject too
 "
 Trait {
-	#name : #GHTMinimalGhost,
-	#category : #'Ghost-ObjectGhost'
+	#name : 'GHTMinimalGhost',
+	#category : 'Ghost-ObjectGhost',
+	#package : 'Ghost-ObjectGhost'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTMinimalGhost >> == anObject [ 
 	"Primitive. Answer whether the receiver and the argument are the same 
 	object (have the same object pointer). Do not redefine the message == in 
@@ -22,46 +23,46 @@ GHTMinimalGhost >> == anObject [
 	self primitiveFailed
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 GHTMinimalGhost >> asCollectionElement [
 	
 ]
 
-{ #category : #'set implementation' }
+{ #category : 'set implementation' }
 GHTMinimalGhost >> asSetElement [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHTMinimalGhost >> enclosedElement [
 	
 ]
 
-{ #category : #'set implementation' }
+{ #category : 'set implementation' }
 GHTMinimalGhost >> enclosedSetElement [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHTMinimalGhost >> ghostClass [
 	^GHMetaMessages extractClassOf: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTMinimalGhost >> ghostIdentityHash [
 	^GHMetaMessages extractIdentityHashOf: self
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 GHTMinimalGhost >> ghostPrintString [
 
 	^GHMetaMessages printObject: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 GHTMinimalGhost >> isGhost [
 	^true
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: aSymbol [ 
 	"Send the unary selector, aSymbol, to the receiver.
 	Fail if the number of arguments expected by the selector is not zero.
@@ -72,13 +73,13 @@ GHTMinimalGhost >> perform: aSymbol [
 	^ self perform: aSymbol withArguments: (Array new: 0)
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: selector orSendTo: otherTarget [
 	"If I wish to intercept and handle selector myself, do it; else send it to otherTarget"
 	^ (self respondsTo: selector) ifTrue: [self perform: selector] ifFalse: [otherTarget perform: selector]
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: aSymbol with: anObject [ 
 	"Send the selector, aSymbol, to the receiver with anObject as its argument.
 	Fail if the number of arguments expected by the selector is not one.
@@ -89,7 +90,7 @@ GHTMinimalGhost >> perform: aSymbol with: anObject [
 	^ self perform: aSymbol withArguments: (Array with: anObject)
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: aSymbol with: firstObject with: secondObject [ 
 	"Send the selector, aSymbol, to the receiver with the given arguments.
 	Fail if the number of arguments expected by the selector is not two.
@@ -100,7 +101,7 @@ GHTMinimalGhost >> perform: aSymbol with: firstObject with: secondObject [
 	^ self perform: aSymbol withArguments: (Array with: firstObject with: secondObject)
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: aSymbol with: firstObject with: secondObject with: thirdObject [ 
 	"Send the selector, aSymbol, to the receiver with the given arguments.
 	Fail if the number of arguments expected by the selector is not three.
@@ -112,13 +113,13 @@ GHTMinimalGhost >> perform: aSymbol with: firstObject with: secondObject with: t
 		withArguments: {firstObject . secondObject . thirdObject}
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: selector withArguments: argArray [ 
 	
 	^self ghostBehaviour intercept: (Message selector: selector arguments: argArray) to: self
 ]
 
-{ #category : #'message performing' }
+{ #category : 'message performing' }
 GHTMinimalGhost >> perform: selector withEnoughArguments: anArray [
 	"Send the selector, aSymbol, to the receiver with arguments in argArray.
 	Only use enough arguments for the arity of the selector; supply nils for missing ones."
@@ -136,7 +137,7 @@ GHTMinimalGhost >> perform: selector withEnoughArguments: anArray [
 	^ self perform: selector withArguments: args
 ]
 
-{ #category : #'apply primitives' }
+{ #category : 'apply primitives' }
 GHTMinimalGhost >> tryPrimitive: primIndex withArgs: argumentArray [
 	"This method is a template that the Smalltalk simulator uses to 
 	execute primitives. See Object documentation whatIsAPrimitive."
@@ -145,11 +146,11 @@ GHTMinimalGhost >> tryPrimitive: primIndex withArgs: argumentArray [
 	^ Context primitiveFailTokenFor: code
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GHTMinimalGhost >> yourself [
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 GHTMinimalGhost >> ~~ anObject [
 	"Answer whether the receiver and the argument are different objects
 	(do not have the same object pointer)."
